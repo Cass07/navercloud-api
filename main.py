@@ -13,8 +13,9 @@ def main():
     api_key = os.environ["INPUT_NC_ACCESS_KEY"]
     api_secret = os.environ["INPUT_NC_SECRET_KEY"]
     method = os.environ["INPUT_METHOD"]
+    request_body = os.environ["INPUT_REQUEST_BODY"]
 
-    apiRequest = ApiRequest(api_base_url, api_uri, api_key, api_secret, method)
+    apiRequest = ApiRequest(api_base_url, api_uri, api_key, api_secret, method, request_body)
 
     response_body = apiRequest.execute()
 

@@ -3,15 +3,17 @@ import time
 import hmac
 import hashlib
 import base64
+import json
 
 class ApiRequest:
-    def __init__(self, api_base_url, api_uri, api_key, api_secret, method):
+    def __init__(self, api_base_url, api_uri, api_key, api_secret, method, request_body):
         self.api_base_url = api_base_url
         self.api_uri = api_uri
         self.api_key = api_key
         self.api_secret = api_secret
         self.method = method
         self.timestamp = str(int(time.time() * 1000))
+        self.request_body = request_body
 
     def _make_signature(self):
         new_line = "\n"
@@ -29,7 +31,16 @@ class ApiRequest:
             'X-NCP-APIGW-SIGNATURE-V2': self._make_signature(),
         }
 
-        request_data = requests.get(self.api_base_url + self.api_uri, headers=headers)
+        switcher = {
+            "GET": requests.get,
+            "POST": requests.post,
+            "PUT": requests.put,
+            "DELETE": requests.delete,
+        }
+
+        json_body = json.loads(self.request_body)
+
+        request_data = switcher.get(self.method)(self.api_base_url + self.api_uri, headers=headers, json=json_body)
 
         print("response_code : ", request_data.status_code)
 

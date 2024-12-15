@@ -18,6 +18,9 @@ inputs:
   nc_secret_key:
     description: "Naver Cloud API Gateway Secret Key"
     required: true
+  request_body:
+    description: "Request Body"
+    required: false
 
 outputs:
   response_body:

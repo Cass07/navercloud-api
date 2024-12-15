@@ -34,6 +34,7 @@ jobs:
 | `method`          | Request Method             | `env`          | Yes      | N/A     |
 | `nc_access_key`   | Naver Cloud API Access Key | `secret env`   | Yes      | N/A     |
 | `nc_secret_key`   | Naver Cloud API Secret Key | `secret env`   | Yes      | N/A     |
+| `request_body`    | Request Body Json String   | `env`          | No       | N/A     |
 
 ## Output
 | Key               | Value              |
