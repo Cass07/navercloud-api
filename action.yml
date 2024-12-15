@@ -21,6 +21,7 @@ inputs:
   request_body:
     description: "Request Body"
     required: false
+    default: "{}"
 
 outputs:
   response_body:
