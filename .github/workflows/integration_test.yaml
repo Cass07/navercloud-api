@@ -8,7 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: self test
+        id: self-test
         uses: cass07/navercloud-api@main
         with:
           nc_api_uri: '/api/v1/project'
@@ -16,3 +18,8 @@ jobs:
           method: 'GET'
           nc_access_key: ${{ secrets.NAVER_CLOUD_API_ACCESS_KEY }}
           nc_secret_key: ${{ secrets.NAVER_CLOUD_API_SECRET_KEY }}
+
+      - name: print response
+        run: |
+          echo "${{ steps.self-test.outputs.response_body }}"
+          echo "${{ env.response_body }}"

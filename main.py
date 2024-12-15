@@ -5,6 +5,7 @@ def set_github_action_output(output_key, output_value):
     f = open(os.path.abspath(os.environ["GITHUB_ENV"]), "a")
     f.write(f'{output_key}={output_value}')
     f.close()
+    print(f"::set-output name={output_key}::{output_value}")
 
 def main():
     api_base_url = os.environ["INPUT_NC_API_BASE_URL"]
