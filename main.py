@@ -1,5 +1,5 @@
 import os
-import ApiRequest
+from ApiRequest import ApiRequest
 
 def set_github_action_output(output_key, output_value):
     f = open(os.path.abspath(os.environ["GITHUB_ENV"]), "a")

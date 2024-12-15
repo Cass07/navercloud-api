@@ -5,8 +5,7 @@ author: "Cass07"
 inputs:
   nc_api_base_url:
     description: "Naver Cloud API Gateway Base URL"
-    required: false
-    default: "https://vpcsourcedeploy.apigw.ntruss.com/api/v1"
+    required: true
   nc_api_uri:
     description: "Naver Cloud API Gateway URL"
     required: true
