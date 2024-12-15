@@ -1,5 +1,8 @@
 name: Integration Test
-on: [push]
+on:
+  push:
+    branches:
+      - test-nc-api
 jobs:
   build:
     runs-on: ubuntu-latest
