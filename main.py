@@ -15,11 +15,9 @@ def main():
 
     apiRequest = ApiRequest(api_base_url, api_uri, api_key, api_secret, method)
 
-    response_text = apiRequest.execute()
+    response_body = apiRequest.execute()
 
-    print(response_text)
-
-    set_github_action_output("response_text", response_text)
+    set_github_action_output("response_body", response_body)
 
 if __name__ == "__main__":
     main()

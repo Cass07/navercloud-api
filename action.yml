@@ -19,6 +19,10 @@ inputs:
     description: "Naver Cloud API Gateway Secret Key"
     required: true
 
+outputs:
+  response_body:
+      description: "Response Body"
+
 runs:
   using: docker
   image: "Dockerfile"

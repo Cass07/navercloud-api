@@ -29,7 +29,11 @@ class ApiRequest:
             'X-NCP-APIGW-SIGNATURE-V2': self._make_signature(),
         }
 
-        result = requests.get(self.api_base_url + self.api_uri, headers=headers).json()
+        request_data = requests.get(self.api_base_url + self.api_uri, headers=headers)
+
+        print("response_code : ", request_data.status_code)
+
+        result = request_data.json()
         return result
 
     def execute(self):
